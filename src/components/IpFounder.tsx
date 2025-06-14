@@ -1,0 +1,29 @@
+import { useEffect } from "react";
+import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
+// import 'sweetalert2/src/sweetalert2.scss'
+
+const IpFounder = () => {
+    const { t } = useTranslation()
+    const title = t("For Iranian users , Please enable your VPN before using the application")
+    
+    async function ipUser(): Promise<void> {
+        try {
+            const res = await fetch("http://ip-api.com/json/");
+            const { country } = await res.json();
+            if (country === "Iran") {
+                Swal.fire(title);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    
+    useEffect(() => {
+        ipUser();
+    }, []);
+
+    return <div></div>;
+};
+
+export default IpFounder;

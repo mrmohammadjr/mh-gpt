@@ -1,0 +1,34 @@
+@import "tailwindcss";
+.lTr {
+  animation: moveRight 0.5s;
+}
+@keyframes moveRight {
+  from {
+    transform: translate(-100px, 0);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+.rTl {
+  animation: moveLeft 0.5s;
+}
+@keyframes moveLeft {
+  from {
+    transform: translate(100px, 0);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+.showHide {
+  animation: showAndHide 1.5s;
+}
+@keyframes showAndHide {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
