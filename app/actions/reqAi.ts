@@ -8,9 +8,6 @@ const groq = new Groq({
 
 export async function getGroqChatCompletion(message: string) {
   try {
-    if (!process.env.AI_API_KEY) {
-      throw new Error("AI_API_KEY is missing");
-    }
 
     const chatCompletion = await groq.chat.completions.create({
       messages: [{ role: "user", content: message }],
