@@ -25,25 +25,25 @@ const Messages = ({ reqRes, statusaimessage }: reqProps) => {
         </div>
       ) : (
         <>
-          {reqRes.map((item, index) => (
+          {reqRes?.map((item, index) => (
             <div key={index} className="w-full">
-              {item.role === "user" ? (
+              {item?.role === "user" ? (
                 <div
                   className={`flex justify-start items-center w-fit gap-2 ml-10 my-10 lTr`}
                 >
                   {/* <FaUserCircle className="showHide text-3xl text-white" /> */}
                   <div
                     className="bg-white w-fit p-2.5 rounded-full cursor-copy"
-                    onClick={() => copyTextToClipboard(item.message ?? "")}
+                    onClick={() => copyTextToClipboard(item?.message ?? "")}
                   >
-                    <p className="text-left">{item.message}</p>
+                    <p className="text-left">{item?.message}</p>
                   </div>
                 </div>
               ) : (
                 <div className=" flex justify-end">
                   <div
                     className="bg-[#2b2b2b] w-[70%] p-5 rounded-3xl cursor-copy"
-                    onClick={() => copyTextToClipboard(item.message ?? "")}
+                    onClick={() => copyTextToClipboard(item?.message ?? "")}
                   >
                     <div className="text-left text-white markdown-response">
                       <ReactMarkdown
@@ -92,9 +92,9 @@ const Messages = ({ reqRes, statusaimessage }: reqProps) => {
                           ),
                         }}
                       >
-                        {item?.message
-                          ?.replace("<think>", "")
-                          ?.replace("</think>", "")}
+                        {String(item?.message ?? "")
+                          .replace("<think>", "")
+                          .replace("</think>", "")}
                       </ReactMarkdown>
                     </div>
                   </div>
