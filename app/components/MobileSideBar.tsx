@@ -9,6 +9,7 @@ import { IoMdLogIn } from "react-icons/io";
 import { RiChatNewFill } from "react-icons/ri";
 import { removeData } from "../data/save";
 import { Response } from "../types/types";
+import { BsLink45Deg } from "react-icons/bs";
 
 type SidebarProps = {
   setReqRes: React.Dispatch<React.SetStateAction<Response[]>>;
@@ -50,6 +51,12 @@ const MobileSideBar = ({ setReqRes }: SidebarProps) => {
               New Chat
             </h1>
           </div>
+        </div>
+        <div className="mt-5 flex gap-5 justify-center items-center bg-black text-white w-fit p-2 rounded-2xl hover:gap-2 hover:text-purple-500 transition-all">
+          <BsLink45Deg />
+          <Link href={"https://mrmohammadjr.github.io/portfolio-app/"}>
+            Author
+          </Link>
         </div>
       </div>
     </div>
