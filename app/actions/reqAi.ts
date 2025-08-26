@@ -3,7 +3,7 @@
 import Groq from "groq-sdk";
 
 const groq = new Groq({
-  apiKey: "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",
+  apiKey: process.env.MH_API,
 });
 
 export async function getGroqChatCompletion(message: string) {
