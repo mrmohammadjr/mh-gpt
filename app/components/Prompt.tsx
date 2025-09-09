@@ -6,7 +6,7 @@ import { saveData } from "../data/save";
 export interface Response {
   id?: Number;
   role?: "user" | "ai";
-  message?: string;
+  message?: string; 
 }
 type reqProps = {
   reqRes: Response[];
@@ -32,7 +32,7 @@ const Prompt = ({ setReqRes, reqRes, setStatusaimessage }: reqProps) => {
           const newMessage: Response = {
             id: Date.now(),
             role: "ai",
-            message: result.message,
+            message: result.message ?? "",
           };
           setReqRes((prev) => [...prev, newMessage]);
           saveData(
