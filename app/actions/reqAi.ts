@@ -7,23 +7,24 @@ const groq = new Groq({
 });
 
 export async function getGroqChatCompletion(message: string) {
+  console.log(message);
   try {
-
     const chatCompletion = await groq.chat.completions.create({
-  "messages": [
-    {
-      "role": "user",
-      "content": message
-    }
-  ],
-  "model": "deepseek-r1-distill-llama-70b",
-  "temperature": 0.6,
-  "max_completion_tokens": 4096,
-  "top_p": 0.95,
-  "stream": false,
-  "stop": null
-});
-  console.log(chatCompletion.choices[0].message.content);
+      messages: [
+        {
+          role: "user",
+          content: message,
+        },
+      ],
+      model: "moonshotai/kimi-k2-instruct-0905", // Use the current model :cite[9]
+      temperature: 1,
+      max_tokens: 8000, // Reduced for 70B model compliance :cite[7]
+      top_p: 1,
+      stream: false,
+      stop: null,
+    });
+
+    // ... (the rest of your code for handling the stream is fine)
     return {
       message: chatCompletion.choices[0].message.content,
       status: 200,
